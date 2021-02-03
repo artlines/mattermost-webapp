@@ -175,12 +175,14 @@ export default class SidebarChannelLink extends React.PureComponent<Props, State
 
     render() {
         const {link, label, channel, unreadMentions, icon, isMuted, isChannelSelected} = this.props;
+        const header = channel.header ? ` - ${channel.header}` : '';
+        const labelExtended = label + header;
 
         let labelElement: JSX.Element = (
             <span
                 className={'SidebarChannelLinkLabel'}
             >
-                {wrapEmojis(label)}
+                {wrapEmojis(labelExtended)}
             </span>
         );
         if (this.state.showTooltip) {
